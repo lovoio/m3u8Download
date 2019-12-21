@@ -1,0 +1,13 @@
+apply plugin: "java"
+
+repositories {
+    mavenLocal()
+    maven { url 'https://maven.aliyun.com/nexus/content/groups/public/'}
+    mavenCentral()
+}
+
+dependencies {
+
+    compile group: 'org.bouncycastle', name: 'bcprov-jdk16', version: '1.46'
+
+}
