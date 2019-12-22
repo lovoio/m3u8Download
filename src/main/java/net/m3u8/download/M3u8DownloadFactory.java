@@ -191,6 +191,7 @@ public class M3u8DownloadFactory {
                 while (count <= retryCount) {
                     try {
                         //模拟http请求获取ts片段文件
+                        System.out.println("urls:" + urls);
                         URL url = new URL(urls);
                         httpURLConnection = (HttpURLConnection) url.openConnection();
                         httpURLConnection.setConnectTimeout((int) timeoutMillisecond);
@@ -316,7 +317,8 @@ public class M3u8DownloadFactory {
                         key = split1[1].split("=", 2)[1];
                 }
             }
-            String relativeUrl = url.substring(0, url.lastIndexOf("/") + 1);
+            url = url.replace("://", "##_##");
+            String relativeUrl = url.substring(0, url.indexOf("/") + 1).replace("##_##", "://");
             //将ts片段链接加入set集合
             for (int i = 0; i < split.length; i++) {
                 String s = split[i];
@@ -358,7 +360,7 @@ public class M3u8DownloadFactory {
                     System.out.println(content);
                     break;
                 } catch (Exception e) {
-//                    System.out.println("第" + count + "获取链接重试！\t" + urls);
+                    System.out.println("第" + count + "获取链接重试！\t" + urls);
                     count++;
 //                    e.printStackTrace();
                 } finally {
@@ -371,6 +373,7 @@ public class M3u8DownloadFactory {
                 throw new M3u8Exception("连接超时！");
             return content;
         }
+
 
         /**
          * 解密ts

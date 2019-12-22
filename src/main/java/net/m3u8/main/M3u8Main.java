@@ -10,7 +10,7 @@ import net.m3u8.download.M3u8DownloadFactory;
 
 public class M3u8Main {
 
-    private static final String M3U8URL = "https://youku.cdn-56.com/20180109/2SwCGxb4/index.m3u8";
+    private static final String M3U8URL = "https://www.mzy2000.com:65/ppvod/AkJ0nFod.m3u8";
 
     public static void main(String[] args) {
 

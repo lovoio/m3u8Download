@@ -11,3 +11,6 @@ dependencies {
     compile group: 'org.bouncycastle', name: 'bcprov-jdk16', version: '1.46'
 
 }
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
